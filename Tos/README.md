@@ -1,5 +1,10 @@
 # Suska-IV TOSTOOLS
 Binaries of the useful TOS progams like UIPWIFI and TOSPATCH are located on the Suska-IV SDCard-Image.<p>
+## New TOS Flash handling starting with Core 20250409 (and current AVR-Firmware)<br>
+To copy any 512k TOS to the flash there it is no longer needed to erase the whole flash. Any of the 16 TOS-Images (slot 0 to 15) can be exchanged from FPGA-Shell with the following sequence:<br>
+- f-erase slot<br>
+- f-write slot tosfile.img<br>
+
 ## ROM Collections (8MB with 16 512k TOS-Slots):<br>
 [r-b4dbg.img](r-b4dbg.img) ETOS-Current 250927<br>
 Generated using: __cat etoscurr.img etosdebug.img etosdebug.img etosdebug.img etosdebug.img etosdebug.img etosdebug.img etosdebug.img etosdebug.img etosdebug.img etosdebug.img etosdebug.img etosdebug.img etosdebug.img etosdebug.img  etoscli.img >r-b4dbg.img__<br>
