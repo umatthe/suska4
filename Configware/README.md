@@ -7,9 +7,9 @@ Suska4-Falcon-B | 20251224 | [SUSKA_IV_B_FALCON_2K25B.rbf](SUSKA_IV_B_FALCON_2K2
 Suska4-Falcon-B | 20251224 | [SUSKA_IV_B_FALCON_2K25B.sof](SUSKA_IV_B_FALCON_2K25B.sof) | 5acee7f3f9629a35ed6b0fa86719737a
 Suska4-Falcon-B | 20251224 | [SUSKA_IV_B_FALCON_2K25B.pof](SUSKA_IV_B_FALCON_2K25B.pof) | 163141c34460035f4fa200f675d119cc
 --- | --- | --- | ---
-Suska4-Falcon-B | 20260401 | [SUSKA_IV_B_FALCON_260409.rbf](SUSKA_IV_B_FALCON_260409.rbf) | 40c390faccb8c7805abc6d8aed1d78b9
-Suska4-Falcon-B | 20260401 | [SUSKA_IV_B_FALCON_260409.sof](SUSKA_IV_B_FALCON_260409.sof) | e6f19a626ccb45769ddb02cf7e9f09ef
-Suska4-Falcon-B | 20260401 | [SUSKA_IV_B_FALCON_260409.pof](SUSKA_IV_B_FALCON_260409.pof) | 55e89af7024d0bea1005d326a7645e2a
+Suska4-Falcon-B | 20260409 | [SUSKA_IV_B_FALCON_260409.rbf](SUSKA_IV_B_FALCON_260409.rbf) | 40c390faccb8c7805abc6d8aed1d78b9
+Suska4-Falcon-B | 20260409 | [SUSKA_IV_B_FALCON_260409.sof](SUSKA_IV_B_FALCON_260409.sof) | e6f19a626ccb45769ddb02cf7e9f09ef
+Suska4-Falcon-B | 20260409 | [SUSKA_IV_B_FALCON_260409.pof](SUSKA_IV_B_FALCON_260409.pof) | 55e89af7024d0bea1005d326a7645e2a
 
 ## Howto install
 - sof - Files can be loaded for trial without permanent changes to the system. They are loaded to the FPGA using the JTAG Connnector and the Quartus SW
