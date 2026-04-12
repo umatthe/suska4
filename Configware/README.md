@@ -17,7 +17,7 @@ Suska4-Falcon-B | 20260409 | [SUSKA_IV_B_FALCON_260409.pof](SUSKA_IV_B_FALCON_26
 ## Do not use the rbf-File in case as-getid returns: Silicon-ID: 17 ** unknown **<br>Update the Firmware first: [AVR-Firmware](../Firmware/)
 - rbf - Files are loaded into the Configflash of the board, deleting the old Core. See the [howto-rbf](howto-rbf.txt) for details.
 
-## What is new in the last version 260316
+## What is new in the last version 260409
 - Bootdevice is now SCSI (as a normal). No ACSI Boot anymore - needs a EmuTOS/TOS that boots from SCSI
 - Supports 16 ROM-Cartridges in Flash
 - Cartridge and OS Flash can now be erased in 512k segments.
