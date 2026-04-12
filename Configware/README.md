@@ -18,6 +18,6 @@ Suska4-Falcon-B | 20260409 | [SUSKA_IV_B_FALCON_260409.pof](SUSKA_IV_B_FALCON_26
 - rbf - Files are loaded into the Configflash of the board, deleting the old Core. See the [howto-rbf](howto-rbf.txt) for details.
 
 ## What is new in the last version 260409
-- Bootdevice is now SCSI (as a normal). No ACSI Boot anymore - needs a EmuTOS/TOS that boots from SCSI
+- Bootdevice is now SCSI (as a normal Falcon). No ACSI Boot anymore - needs a EmuTOS/TOS that boots from SCSI
 - Supports 16 ROM-Cartridges in Flash
 - Cartridge and OS Flash can now be erased in 512k segments.
