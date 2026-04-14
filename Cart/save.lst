@@ -1,0 +1,70 @@
+' **********************************************************************
+'  ROMINI_2 -- Kopiert ROM-Modul (Bootsektor) in die oberen 128 KB
+'  bzw. speichert RAM-Disk in 2 Blöcken auf Disk
+'  BB Nov. 89
+' **********************************************************************
+'
+rdnum%=5                                  ! Wie in ROMINIT.S  <RAMDNUM>
+rdsize%=512                               ! "   "  "
+magic%=&HABCDEF42                         ! "   "  "
+'
+rdchr$=CHR$(rdnum%+65)+":\"
+bpb_adr%=BIOS(7,rdnum%)
+fuell1_lng%=(DPEEK(bpb_adr%+14)-rdsize%-2-256)*512  ! zu füllende Bytes
+'           Anzahl Datensekt. -256 Sekt -2  =  Datensektoren untere 128K
+'           minus 2 weil in BPB 2 mehr eingetragen
+PRINT "BPB: $";HEX$(bpb_adr%)                !!! nur zum Test !!!
+PRINT "B pro Sekt"''DPEEK(bpb_adr%)
+PRINT "S pro Clst"''DPEEK(bpb_adr%+2)
+PRINT "B pro Clst"''DPEEK(bpb_adr%+4)
+PRINT "S pro Dir "''DPEEK(bpb_adr%+6)
+PRINT "S pro FAT "''DPEEK(bpb_adr%+8)
+PRINT "Start FAT2"''DPEEK(bpb_adr%+10)
+PRINT "Start Datn"''DPEEK(bpb_adr%+12)
+PRINT "Anzahl Sek"''DPEEK(bpb_adr%+14)       !!! --- Test --- !!!
+fuell2_lng%=(rdsize%-1)*512
+'
+modul_adr%=bpb_adr%           ! von BPB an abwärts ROM-Magic suchen
+WHILE NOT found!
+  DEC modul_adr%
+  IF PEEK(modul_adr%)=&HAB
+    IF LPEEK(modul_adr%)=magic%
+      found!=TRUE
+    ENDIF
+  ELSE
+    IF bpb_adr%-modul_adr%>512
+      ALERT 1,"Modul-Anfang nicht gefunden",1,"Abbruch",f%
+      END
+    ENDIF
+  ENDIF
+WEND
+'
+DEFMOUSE 2
+IF DFREE(rdnum%+1)>200000              ! RAM-Disk leer = erster Aufruf
+REM IF NOT EXIST(rdchr$+"bootcopy.xxx")
+  PRINT "erster Aufruf"
+  DIM a%(fuell2_lng%/4)                               ! Füll-Dummy
+  BSAVE rdchr$+"xxxxxxxx",VARPTR(a%(0)),fuell1_lng%
+  BSAVE rdchr$+"bootcopy.xxx",modul_adr%,512
+  BSAVE rdchr$+"xxxxxxx1",VARPTR(a%(0)),fuell1_lng%
+  BSAVE rdchr$+"xxxxxx11",VARPTR(a%(0)),3584
+  BSAVE rdchr$+"bootcopy.xx1",modul_adr%,512
+  BSAVE rdchr$+"xxxxxxx2",VARPTR(a%(0)),fuell1_lng%
+  BSAVE rdchr$+"xxxxxx22",VARPTR(a%(0)),3584
+  BSAVE rdchr$+"bootcopy.xx2",modul_adr%,512
+  KILL rdchr$+"xxxxxxxx"
+  KILL rdchr$+"xxxxxxx1"
+  KILL rdchr$+"xxxxxx11"
+  KILL rdchr$+"xxxxxxx2"
+  KILL rdchr$+"xxxxxx22"
+ELSE                                    ! sonst zweiter Aufruf
+  PRINT "zweiter Aufruf"
+  IF EXIST(rdchr$+"bootcopy.xxx")
+    KILL rdchr$+"bootcopy.xxx"          ! Eintrag löschen, Sektor bleibt
+    KILL rdchr$+"bootcopy.xx1"          ! Eintrag löschen, Sektor bleibt
+    KILL rdchr$+"bootcopy.xx2"          ! Eintrag löschen, Sektor bleibt
+  ENDIF                                 ! Ab jetzt nichts mehr auf die
+  OPEN "o",#2,"c:\romdisk.512"
+  BPUT #2,modul_adr%,&H80000    ! FB0000-FBFFFF
+  CLOSE
+ENDIF
