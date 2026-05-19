@@ -5,6 +5,9 @@ To copy any 512k TOS to the flash there it is no longer needed to erase the whol
 - f-erase slot<br>
 - f-write slot tosfile.img<br>
 
+## ETOS Image TESTTOS.IMG
+This File is a ETOSCURR.IMG with patches for 800x480 Screen Resolution on Falcon
+
 ## ROM Collections (8MB with 16 512k TOS-Slots):<br>
 [r-b4dbg.img](r-b4dbg.img) ETOS-Current 260519<br>
 Generated using: __cat etoscurr.img etosdebug.img etosdebug.img etosdebug.img etosdebug.img etosdebug.img etosdebug.img etosdebug.img etosdebug.img etosdebug.img etosdebug.img etosdebug.img etosdebug.img etosdebug.img etosdebug.img  etoscli.img >r-b4dbg.img__<br>
