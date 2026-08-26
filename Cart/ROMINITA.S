@@ -197,7 +197,7 @@ COPYSYS: MOVE.B  (A0)+,(A1)+
          ADDQ.L  #6,SP
          RTS                           * und fertig !
 
-MELDUNG: DC.B    13,10,"ROM-DISK installiert.",13,10,0
+MELDUNG: DC.B    13,10,"ROM-DISK E: installiert.",13,10,0
          EVEN
 
 *--------------------------------------------------------------------*
