@@ -1,14 +1,18 @@
-This is the header of the top level file of the SUSKA-IV-B vhdl model. It contains all relevant
-information about the hardware and its configuration and parameterization options. These settings
-are subject to change in future releases. Refer to the latest top level files to get the latest 
-informations.
+# Suska-IV-B Configuration Options
 
+This is the header of the top level file of the `SUSKA-IV-B` vhdl model. It contains all relevant information about the hardware and its configuration and parameterization options. These settings are subject to change in future releases. Refer to the latest top level files to get the latest informations.
+
+---
+
+## Top Level VHDL Header
+
+```vhdl
 ------------------------------------------------------------------------
 ----                                                                ----
 ---- Atari Falcon compatible IP Core for the Suska-IV-F board.      ----
 ----                                                                ----
 ---- This file is part of the SUSKA ATARI clone project.            ----
----- http://www.experiment-s.de                                     ----
+---- [http://www.experiment-s.de](http://www.experiment-s.de)                                     ----
 ----                                                                ----
 ---- Description:                                                   ----
 ---- This model provides the top level file of a Falcon compatible  ----
@@ -146,7 +150,7 @@ entity SUSKA_IV_B_FALCON_68K30_TOP is
             VERSION                 : std_logic_vector(31 downto 0) := x"20250620"; -- Core version.
             HALFMOONS_I             : std_logic_vector(8 downto 1) := x"BF"; -- Configuration switches.
             HALFMOONS_II            : std_logic_vector(6 downto 1) := "101111"; -- Configuration switches. The upper two significant bits are now CONFIG(1 to 2).
-NO_FLOPPY               : boolean := true; -- Set true to disable floppy on SD card otherwise false.
+            NO_FLOPPY               : boolean := true; -- Set true to disable floppy on SD card otherwise false.
             NO_IDE                  : boolean := true; -- Set true if there is no IDE hardware.
             BUS_WIDTH               : RAMWIDTH_TYPE := L32; -- CPU-RAM data width used. Valid values are L32, W16, B8.
             RAM_16                  : boolean := false; -- For this Falcon core we have 32 wide RAM. So the only choice is 'false'.
@@ -157,3 +161,4 @@ NO_FLOPPY               : boolean := true; -- Set true to disable floppy on SD c
             USB1164_LITTLE_ENDIAN   : boolean := false); 
 
     port(
+```
